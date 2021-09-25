@@ -1,0 +1,8 @@
+<div class="overlay" *ngIf="isOpened$ | async" (click)="closeModal()">
+  <div class="modal" stopPropagation>
+    <cross-icon (click)="closeModal()"></cross-icon>
+    <ng-content select="[header]"></ng-content>
+    <ng-content select="[body]"></ng-content>
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</div>
