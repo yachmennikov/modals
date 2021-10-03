@@ -1,3 +1,13 @@
-<div class="body">
-  Body Template
+<div class="body" [formGroup]="baseForm">
+
+  <div class="input-wrapper">
+    <input type="text" formControlName="email" placeholder="Enter e-mail">
+    <p *ngIf="baseForm.controls['email'].touched && baseForm.controls['email'].invalid" class="error-message">incorrect e-mail</p>
+  </div>
+
+  <div class="input-wrapper">
+    <input type="password" formControlName="password" placeholder="Enter password">
+    <p *ngIf="baseForm.controls['password'].touched && baseForm.controls['password'].invalid" class="error-message">incorrect password</p>
+  </div>
+
 </div>

@@ -7,6 +7,6 @@ import {Component, Input} from '@angular/core';
 })
 export class ModalHeaderBaseComponent {
 
-  @Input() title: string = 'Header Template';
+  @Input() title: string = 'Base Form Header';
 
 }

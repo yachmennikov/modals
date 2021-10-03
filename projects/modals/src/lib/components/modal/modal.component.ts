@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ModalsService } from '../../modals.service';
+import { ModalI } from '../../models';
 
 @Component({
   selector: 'modal',
@@ -7,6 +8,8 @@ import { ModalsService } from '../../modals.service';
   styleUrls: ['modal.component.less'],
 })
 export class ModalComponent {
+
+  @Input() config: ModalI = {};
 
   get isOpened$() {
     return this.modalsService.isOpened$;

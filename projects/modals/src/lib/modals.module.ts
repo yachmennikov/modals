@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import { ModalComponent } from './components/modal/modal.component';
 import { CrossIconComponent } from './components/cross-icon/cross-icon.component';
 import { ModalHeaderBaseComponent } from './components/modal-header-base/modal-header-base.component';
@@ -7,6 +7,8 @@ import { ModalFooterBaseComponent } from './components/modal-footer-base/modal-f
 import { ModalsService } from './modals.service';
 import { CommonModule } from '@angular/common';
 import { StopPropagationDirective } from './directives/stop-propagation.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalI } from './models';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     ModalsService
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
   ],
   exports: [
     ModalComponent,
@@ -30,4 +33,17 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
     ModalFooterBaseComponent,
   ]
 })
-export class ModalsModule {}
+export class ModalsModule {
+
+  static forFeature(config: ModalI = {}): ModuleWithProviders<ModalsModule> {
+    return {
+      ngModule: ModalsModule,
+      providers: [
+        {
+          provide: 'config',
+          useValue: config
+        }
+      ]
+    };
+  }
+}

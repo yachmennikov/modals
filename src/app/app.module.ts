@@ -12,7 +12,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ModalsModule,
+    ModalsModule.forFeature(),
     ButtonsModule.forRoot()
   ],
   providers: [],

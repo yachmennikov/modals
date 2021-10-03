@@ -1,3 +1,4 @@
 <div class="footer">
-  {{ title }}
+  <button *ngIf="cancelBtn" class="cancel" (click)="close()">Cancel</button>
+  <button *ngIf="submitBtn" class="submit" (click)="submit()">Submit</button>
 </div>
